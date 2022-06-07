@@ -1,0 +1,38 @@
+.toggle {
+  input { display:none; }
+
+  input + label {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    
+    span:first-child {
+      transition: background .3s ease-in-out;
+      width: 34px;
+      height: 16px;
+      display: inline-block;
+      background: var(--grey);
+      border-radius: 10px;
+      margin: 2px 13px 2px 2px;
+
+      .dot {
+        transition: margin-left .3s ease-in-out;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: white;
+      }
+    }
+  }
+
+  input:checked + label {
+    span:first-child {
+      background: var(--info);
+
+      .dot{
+        margin-left: 22px;
+        background: white;
+      }
+    }
+  }
+}

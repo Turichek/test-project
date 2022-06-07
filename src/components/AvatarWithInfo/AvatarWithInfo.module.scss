@@ -1,0 +1,10 @@
+.avatarWithInfo {
+  display: flex;
+  align-items: center;
+  
+  .info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
