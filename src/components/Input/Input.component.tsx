@@ -17,6 +17,7 @@ export const InputComponent: React.FC<InputProps> = ({
     className
   );
   const [value, setValue] = useState('');
+  const [asda, setVasdfasalue] = useState('');
 
   return (
     <div className={InputClass}>
