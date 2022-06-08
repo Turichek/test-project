@@ -1,3 +1,4 @@
+import { IconsEnum } from "components/SvgIcon";
 import { ReactNode } from "react";
 
 export enum InputVariantEnum{
@@ -7,7 +8,9 @@ export enum InputVariantEnum{
 
 export type InputProps = {
   variant: InputVariantEnum;
+  type?: string;
   label?: string;
   placeholder?: string;
+  rightSide?: IconsEnum;
   className?: string;
 };

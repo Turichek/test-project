@@ -7,17 +7,19 @@ import { Text, TextVariantEnum } from 'components/Text';
 export const BadgeComponent: React.FC<BadgeProps> = ({
   text,
   color,
-  disabled = false,
   className
 }) => {
   const BadgeClass = classNames(
     styles.badge,
+    {
+      [styles[`badge_${color}`]]: color,
+    },
     className
   );
 
   return (
-    <div style={!disabled ? {backgroundColor: color} : {backgroundColor: '#515B6C'}} className={BadgeClass}>
-        <Text variant={TextVariantEnum.caption}>{!disabled ? text : 'Деактивированный'}</Text>
+    <div className={BadgeClass}>
+      <Text variant={TextVariantEnum.caption}>{text}</Text>
     </div>
   );
 };

@@ -23,8 +23,8 @@
 
   input:checked + label {
     span:first-child {
-      border: 1px solid var(--info);
-      background: var(--info);
+      border: 1px solid var(--primary);
+      background: var(--primary);
       
       &::after{
         margin-left: 1px;

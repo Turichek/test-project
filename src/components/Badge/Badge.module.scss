@@ -5,6 +5,42 @@
   border-radius: 4px;
   width: fit-content;
   padding: 4px 8px;
+  
+  &_light_orange{
+    background-color: var(--light_orange);
+  }
+
+  &_light_green{
+    background-color: var(--light_green);
+  }
+
+  &_light_blue{
+    background-color: var(--light_blue);
+  }
+
+  &_red{
+    background-color: var(--red);
+  }
+
+  &_blue{
+    background-color: var(--lblue);
+  }
+
+  &_orange{
+    background-color: var(--orange);
+  }
+
+  &_green{
+    background-color: var(--green);
+  }
+
+  &_cyan{
+    background-color: var(--cyan);
+  }
+
+  &_disabled{
+    background-color: var(--disabled);
+  }
 
   span{
     color: #fff;

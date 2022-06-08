@@ -23,14 +23,14 @@
         display: none;
         width: 10px;
         height: 10px;
-        background: var(--info);
+        background: var(--primary);
       }
     }
   }
 
   input:checked + label {
     span:first-child {
-      border: 1px solid var(--info);
+      border: 1px solid var(--primary);
       
       .dot {
         display: inline-block;

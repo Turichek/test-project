@@ -7,6 +7,7 @@ import { Toggle } from 'components/Toggle';
 import { Text, TextVariantEnum } from 'components/Text';
 import styles from  './styles/App.module.scss';
 import { Input, InputVariantEnum } from 'components/Input';
+import { IconsEnum } from 'components/SvgIcon';
 
 function App() {
   const [selected, setSelected] = useState('');
@@ -45,8 +46,16 @@ function App() {
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs</Text>
-        <Input variant={InputVariantEnum.lg} />
-        <Input variant={InputVariantEnum.md}/>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} /></div>
+
+        <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with icon</Text>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} rightSide={IconsEnum.eye} /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} rightSide={IconsEnum.eye} /></div>
+
+        <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with label</Text>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} label='Введите пароль' /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} label='Введите пароль' /></div>
       </div>
     </>
   );

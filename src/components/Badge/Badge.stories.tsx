@@ -11,14 +11,8 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['#F2994A','#6FCF97','#2D9CDB','#EB5757','#2F80ED','#FF8437','#219653','#56CCF2'],
+      options: ['light_orange', 'light_green', 'light_blue', 'red', 'blue', 'orange', 'green', 'cyan', 'disabled'],
     },
-    disabled: {
-      control: {
-        type: 'select',
-      },
-      options: [true,false],
-    }
   },
 };
 
@@ -34,5 +28,4 @@ export const badge = Template.bind({});
 badge.args = {
   text: 'Vadim',
   color: BadgeColorEnum.light_blue,
-  disabled: false
 };

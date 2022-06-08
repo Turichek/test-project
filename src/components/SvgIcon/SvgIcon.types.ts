@@ -2,6 +2,7 @@ export enum IconsEnum {
   // common
   loader = '/icons/common/loader.svg',
   search = '/icons/common/search.svg',
+  eye = '/icons/common/eye.svg'
 }
 
 export type SvgIconProps = {
@@ -16,18 +17,22 @@ export type SvgIconProps = {
 };
 
 export type colorType =
-  | 'unset'
-  | 'inherit'
-  | 'white'
-  | 'ultra-light-gray'
-  | 'light-gray'
-  | 'gray'
-  | 'dark-gray'
-  | 'ultra-dark-gray'
-  | 'ultra-light-primary'
-  | 'light-primary'
   | 'primary'
-  | 'dark-primary'
-  | 'error'
   | 'warning'
-  | 'success';
+  | 'error'
+  | 'success'
+  | 'white'
+  | 'light-grey'
+  | 'grey'
+  | 'dark-grey'
+  | 'black'
+  | 'metal'
+  | 'light_orange'
+  | 'light_green'
+  | 'light_blue'
+  | 'red'
+  | 'blue'
+  | 'orange'
+  | 'green'
+  | 'cyan'
+  | 'disabled';
