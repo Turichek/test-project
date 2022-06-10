@@ -8,10 +8,13 @@ import { Text, TextVariantEnum } from 'components/Text';
 import styles from  './styles/App.module.scss';
 import { Input, InputVariantEnum } from 'components/Input';
 import { IconsEnum } from 'components/SvgIcon';
+import { Password } from 'components/Password';
+import { Datepicker } from 'components/Datepicker';
 
 function App() {
   const [selected, setSelected] = useState('');
-
+  const defaultIconColor = {color:'grey'}
+  
   const ChangeSelectedRadio = (value: string) => {
     setSelected(value);
   }
@@ -47,15 +50,23 @@ function App() {
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs</Text>
         <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} value='123' /></div>
 
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with icon</Text>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} rightSide={IconsEnum.eye} /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} rightSide={IconsEnum.eye} /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} rightSideArgs={defaultIconColor} rightSide={IconsEnum.eye} /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} rightSideArgs={defaultIconColor} rightSide={IconsEnum.eye} /></div>
 
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with label</Text>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} label='Введите пароль' /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} label='Введите пароль' /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} label='Текст' /></div>
+        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} label='Какой-то' /></div>
+      </div>
+      <div className={styles.category}>
+        <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Password</Text>
+        <div className={styles.mb_5}><Password variant={InputVariantEnum.lg} /></div>
+      </div>
+      <div className={styles.category}>
+        <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Сalendar</Text>
+        <div className={styles.mb_5}><Datepicker variant={InputVariantEnum.lg} value={new Date()}/></div>
       </div>
     </>
   );
