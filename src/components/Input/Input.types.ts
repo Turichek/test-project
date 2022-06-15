@@ -1,4 +1,5 @@
 import { IconsEnum } from "components/SvgIcon";
+import React, { ChangeEvent, ReactNode } from "react";
 
 export enum InputVariantEnum{
   lg = 'large',
@@ -6,14 +7,14 @@ export enum InputVariantEnum{
 }
 
 export type InputProps = {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
   variant: InputVariantEnum;
-  value?: string;
   disabled?: boolean; 
   type?: string;
   label?: string;
   placeholder?: string;
-  rightSide?: IconsEnum;
-  rightSideArgs?: object;
-  rightSideClick?: () => void;
+  rightSide?: ReactNode;
   className?: string;
 };

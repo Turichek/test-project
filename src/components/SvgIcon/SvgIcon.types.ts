@@ -3,6 +3,8 @@ export enum IconsEnum {
   search = '/icons/common/search.svg',
   eye = '/icons/common/eye.svg',
   calendar = '/icons/common/calendar.svg',
+  arrowR = '/icons/common/arrowRight.svg',
+  arrowL = '/icons/common/arrowLeft.svg',
 }
 
 export type SvgIconProps = {

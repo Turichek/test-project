@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 
 export enum AvatarVariantEnum {
   lg = 'large',

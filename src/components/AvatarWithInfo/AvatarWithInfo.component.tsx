@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { AvatarWithInfoProps } from './AvatarWithInfo.types';
 import styles from './AvatarWithInfo.module.scss';

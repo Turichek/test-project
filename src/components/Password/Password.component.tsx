@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { PasswordProps } from './Password.types';
-import { IconsEnum } from 'components/SvgIcon';
+import { IconsEnum, SvgIcon } from 'components/SvgIcon';
 import { Input } from 'components/Input';
+import styles from './Password.module.scss';
+import classNames from 'classnames';
 
 export const PasswordComponent: React.FC<PasswordProps> = ({
+  value,
+  onChange,
   variant,
   placeholder,
   disabled,
+  className,
 }) => {
+  const PasswordClass = classNames(
+    styles.password,
+    className
+  );
   const [isView, setIsView] = useState(false);
-  const rightArgs = {
-    color: !isView ? "grey" : "primary"
-  }
 
   const handleRightClick = () => {
     setIsView(!isView);
@@ -19,14 +25,15 @@ export const PasswordComponent: React.FC<PasswordProps> = ({
 
   return (
     <Input
+      value={value}
+      onChange={onChange}
       disabled={disabled}
       placeholder={placeholder}
       type={!isView ? 'password' : 'text'}
       variant={variant}
       label="Введите пароль"
-      rightSide={IconsEnum.eye}
-      rightSideArgs={rightArgs}
-      rightSideClick={handleRightClick}
+      rightSide={<SvgIcon className={styles.svg} onClick={handleRightClick} src={IconsEnum.eye} color={isView ? 'primary' : 'grey'} />}
+      className={PasswordClass}
     />
   );
 };

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { CheckboxProps } from './Checkbox.types';
 import styles from './Checkbox.module.scss';

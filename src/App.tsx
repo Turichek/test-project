@@ -5,16 +5,25 @@ import { Checkbox } from 'components/Chechbox';
 import { Radio } from 'components/Radio';
 import { Toggle } from 'components/Toggle';
 import { Text, TextVariantEnum } from 'components/Text';
-import styles from  './styles/App.module.scss';
+import styles from './styles/App.module.scss';
 import { Input, InputVariantEnum } from 'components/Input';
-import { IconsEnum } from 'components/SvgIcon';
+import { IconsEnum, SvgIcon } from 'components/SvgIcon';
 import { Password } from 'components/Password';
 import { Datepicker } from 'components/Datepicker';
 
 function App() {
   const [selected, setSelected] = useState('');
-  const defaultIconColor = {color:'grey'}
-  
+  const [text1, setText1] = useState('');
+  const [text2, setText2] = useState('');
+  const [text3, setText3] = useState('');
+  const [text4, setText4] = useState('');
+  const [text5, setText5] = useState('');
+  const [text6, setText6] = useState('');
+  const [text7, setText7] = useState('');
+  const [date1, setDate1] = useState<Date | null>(new Date());
+
+  const [rightSide] = useState(<SvgIcon className={styles.svg} onClick={() => { }} src={IconsEnum.eye} color={'grey'} />)
+
   const ChangeSelectedRadio = (value: string) => {
     setSelected(value);
   }
@@ -49,24 +58,25 @@ function App() {
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs</Text>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} value='123' /></div>
+        <div className={styles.mb_5}><Input value={text1} onChange={(e) => { setText1(e.target.value) }} variant={InputVariantEnum.lg} /></div>
+        <div className={styles.mb_5}><Input value={text2} onChange={(e) => { setText2(e.target.value) }} variant={InputVariantEnum.md} /></div>
 
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with icon</Text>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} rightSideArgs={defaultIconColor} rightSide={IconsEnum.eye} /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} rightSideArgs={defaultIconColor} rightSide={IconsEnum.eye} /></div>
+        <div className={styles.mb_5}><Input value={text3} onChange={(e) => { setText3(e.target.value) }} variant={InputVariantEnum.lg} rightSide={rightSide} /></div>
+        <div className={styles.mb_5}><Input value={text4} onChange={(e) => { setText4(e.target.value) }} variant={InputVariantEnum.md} rightSide={rightSide} /></div>
 
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with label</Text>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.lg} label='Текст' /></div>
-        <div className={styles.mb_5}><Input variant={InputVariantEnum.md} label='Какой-то' /></div>
+        <div className={styles.mb_5}><Input value={text5} onChange={(e) => { setText5(e.target.value) }} variant={InputVariantEnum.lg} label='Текст' /></div>
+        <div className={styles.mb_5}><Input value={text6} onChange={(e) => { setText6(e.target.value) }} variant={InputVariantEnum.md} label='Какой-то' /></div>
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Password</Text>
-        <div className={styles.mb_5}><Password variant={InputVariantEnum.lg} /></div>
+        <div className={styles.mb_5}><Password value={text7} onChange={(e) => { setText7(e.target.value) }} variant={InputVariantEnum.lg} /></div>
+        <div className={styles.mb_5}><Password value={text7} onChange={(e) => { setText7(e.target.value) }} variant={InputVariantEnum.md} /></div>
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Сalendar</Text>
-        <div className={styles.mb_5}><Datepicker variant={InputVariantEnum.lg} value={new Date()}/></div>
+        <div className={styles.mb_5}><Datepicker value={date1} onChange={(date) => { setDate1(date) }} variant={InputVariantEnum.lg} /></div>
       </div>
     </>
   );

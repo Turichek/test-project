@@ -1,7 +1,81 @@
+@import 'node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+
 .datepicker {
-    input {
-            &::-webkit-calendar-picker-indicator {
-            display: none;
+    [class*='text'] {
+        cursor: pointer;
+    }
+
+    .header {
+        border: none;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding: 35px 30px 8px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 360px;
+        height: 86px;
+        background-color: var(--white);
+
+        .picker {
+            display: flex;
+            justify-content: space-between;
         }
+
+        .day_names {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                color: var(--grey)
+            }
+        }
+    }
+
+    [class$='react-datepicker'] {
+        border: 1px solid var(--light-grey);
+        border-radius: 8px;
+    }
+
+    [class$='react-datepicker__month'] {
+        margin: 0px;
+        padding: 10px 18px 18px 18px;
+    }
+
+    [class$='react-datepicker__week'] {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    [class*='react-datepicker__day'] {
+        margin: 8px 0px 0px 0px;
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+        line-height: 24px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--black);
+    }
+
+    [class*='react-datepicker__day--selected'] {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+
+    [class*='react-datepicker__header react-datepicker__header--custom'] {
+        padding: 0px;
+        border-bottom: 1px solid var(--light-grey);
+    }
+
+    [class*='react-datepicker__day--outside-month'] {
+        color: var(--grey);
+    }
+
+    [class*='react-datepicker__day-names'],
+    [class*='react-datepicker__triangle'] {
+        display: none;
     }
 }
