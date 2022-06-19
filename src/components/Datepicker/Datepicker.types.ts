@@ -7,8 +7,3 @@ export type DatepickerProps = {
   value: Date | null;
   className?: string;
 };
-
-export type CalenderProps = {
-  className: string,
-  children: ReactNode,
-}

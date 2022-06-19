@@ -12,6 +12,8 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
   type,
   onChange,
   onClick,
+  onBlur,
+  onFocus,
   rightSide,
   className,
 },ref) => {
@@ -27,13 +29,14 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
     className
   );
 
-  const handleFocus = () => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (disabled) return;
     setIsFocused(true);
   }
 
-  const handleBlur = () => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (disabled) return;
+    onBlur?.(e);
     if (value) return;
     setIsFocused(false);
   }

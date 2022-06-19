@@ -10,6 +10,8 @@ import { Input, InputVariantEnum } from 'components/Input';
 import { IconsEnum, SvgIcon } from 'components/SvgIcon';
 import { Password } from 'components/Password';
 import { Datepicker } from 'components/Datepicker';
+import { Select, testOption } from 'components/Select';
+import { MultiValue, SingleValue } from 'react-select';
 
 function App() {
   const [selected, setSelected] = useState('');
@@ -20,6 +22,7 @@ function App() {
   const [text5, setText5] = useState('');
   const [text6, setText6] = useState('');
   const [text7, setText7] = useState('');
+  const [select1, setSelect1] = useState<SingleValue<testOption>>({value: '', label: ''});
   const [date1, setDate1] = useState<Date | null>(new Date());
 
   const [rightSide] = useState(<SvgIcon className={styles.svg} onClick={() => { }} src={IconsEnum.eye} color={'grey'} />)
@@ -68,6 +71,10 @@ function App() {
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs with label</Text>
         <div className={styles.mb_5}><Input value={text5} onChange={(e) => { setText5(e.target.value) }} variant={InputVariantEnum.lg} label='Текст' /></div>
         <div className={styles.mb_5}><Input value={text6} onChange={(e) => { setText6(e.target.value) }} variant={InputVariantEnum.md} label='Какой-то' /></div>
+      </div>
+      <div className={styles.category}>
+        <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Select</Text>
+        <div className={styles.mb_5}><Select value={select1} onChange={(newValue) => { setSelect1(newValue) }} variant={InputVariantEnum.lg} /></div>
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Password</Text>

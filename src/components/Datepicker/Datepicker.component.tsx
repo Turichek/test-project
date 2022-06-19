@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
-import { CalenderProps, DatepickerProps } from './Datepicker.types';
+import { DatepickerProps } from './Datepicker.types';
 import styles from './Datepicker.module.scss';
 import { Input } from 'components/Input';
 import "react-datepicker/dist/react-datepicker.css";
@@ -49,17 +49,7 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
     setIsView(!isView);
     datepicker.current?.setOpen(true);
   }
-
-  const Calender: React.FC<CalenderProps> = ({ className, children }) => {
-    return (
-      <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
-        <CalendarContainer>
-          <div style={{ position: "relative" }}>{children}</div>
-        </CalendarContainer>
-      </div>
-    );
-  };
-
+  
   return (
     <div className={DatepickerClass}>
       <DatePicker
@@ -70,7 +60,6 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
         onChange={onChange}
         onCalendarOpen={() => { setIsView(true); }}
         onCalendarClose={() => { setIsView(false); }}
-        // calendarContainer={Calender}
         renderCustomHeader={({
           date,
           decreaseMonth,

@@ -67,6 +67,10 @@
 
       [class*='svgIcon'] {
         padding: 16px 16px 16px 0px;
+
+        &[class*='_rotate_180'] {
+          padding: 16px 0px 16px 16px;
+        }
       }
 
       .label {
@@ -83,6 +87,10 @@
 
       [class*='svgIcon'] {
         padding: 8px 16px 8px 0px;
+
+        &[class*='_rotate_180'] {
+          padding: 8px 0px 8px 16px;
+        }
       }
 
       .label {

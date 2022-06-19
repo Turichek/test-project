@@ -32,7 +32,7 @@ export const PasswordComponent: React.FC<PasswordProps> = ({
       type={!isView ? 'password' : 'text'}
       variant={variant}
       label="Введите пароль"
-      rightSide={<SvgIcon className={styles.svg} onClick={handleRightClick} src={IconsEnum.eye} color={isView ? 'primary' : 'grey'} />}
+      rightSide={<SvgIcon  onClick={handleRightClick} src={IconsEnum.eye} color={isView ? 'primary' : 'grey'} />}
       className={PasswordClass}
     />
   );

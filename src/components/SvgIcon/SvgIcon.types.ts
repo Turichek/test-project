@@ -5,6 +5,7 @@ export enum IconsEnum {
   calendar = '/icons/common/calendar.svg',
   arrowR = '/icons/common/arrowRight.svg',
   arrowL = '/icons/common/arrowLeft.svg',
+  arrowB = '/icons/common/arrowBottom.svg',
 }
 
 export type SvgIconProps = {
@@ -12,7 +13,7 @@ export type SvgIconProps = {
   onClick?: () => void;
   size?: number;
   color?: colorType;
-  rotate?: '90' | '180' | '270';
+  rotate?: '0' | '90' | '180' | '270';
   className?: string;
   style?: React.CSSProperties;
   defaultStroke?: boolean;

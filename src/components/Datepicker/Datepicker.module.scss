@@ -20,6 +20,8 @@
         .picker {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
         }
 
         .day_names {
@@ -58,11 +60,15 @@
         justify-content: center;
         align-items: center;
         color: var(--black);
+
+        &:hover {
+            background-color: var(--light-grey);
+        }
     }
 
     [class*='react-datepicker__day--selected'] {
         background-color: var(--primary);
-        color: var(--white);
+        color: var(--white) !important;
     }
 
     [class*='react-datepicker__header react-datepicker__header--custom'] {
@@ -72,6 +78,14 @@
 
     [class*='react-datepicker__day--outside-month'] {
         color: var(--grey);
+    }
+
+    [class*='react-datepicker__day--keyboard-selected']{
+        background-color: var(--light-grey);
+
+        &:hover{
+            background-color: var(--light-grey);
+        }
     }
 
     [class*='react-datepicker__day-names'],
