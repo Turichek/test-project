@@ -1,6 +1,6 @@
-
 export type CheckboxProps = {
-  checked?: boolean;
+  onClick: () => void;
+  checked: boolean;
   text?: string;
   className?: string;
 };

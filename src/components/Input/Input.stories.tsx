@@ -6,6 +6,14 @@ import { InputProps } from './Input.types';
 export default {
   title: 'Components/Input',
   component: Input,
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['large', 'medium'],
+    },
+  },
 };
 
 const Template: Story<InputProps> = (args) => {

@@ -14,6 +14,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
   onClick,
   onBlur,
   onFocus,
+  readonly,
   rightSide,
   className,
 },ref) => {
@@ -32,6 +33,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (disabled) return;
     setIsFocused(true);
+    onFocus?.(e);
   }
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -52,6 +54,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
         type={type ? type : 'text'}
         placeholder={placeholder && placeholder}
         className={styles.text}
+        readOnly={readonly}
 
         onClick={onClick}
         onChange={onChange}

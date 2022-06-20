@@ -7,6 +7,7 @@ import { TextVariantEnum } from 'components/Text';
 
 export const ToggleComponent: React.FC<ToggleProps> = ({
   checked = false,
+  onClick,
   text,
   className,
 }) => {
@@ -14,16 +15,11 @@ export const ToggleComponent: React.FC<ToggleProps> = ({
     styles.toggle,
     className
   );
-  const [check, setCheck] = useState(checked)
-
-  const handleClick = () => {
-    setCheck(!check);
-  }
 
   return (
     <div className={ToggleClass}>
-      <input onChange={() => {}} type='checkbox' checked={check} />
-      <label onClick={() => handleClick()}><span><span className={styles.dot}></span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
+      <input type='checkbox' onChange={() => {}} checked={checked} />
+      <label onClick={onClick}><span><span className={styles.dot}></span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
     </div>
   );
 };

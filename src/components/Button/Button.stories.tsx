@@ -52,7 +52,7 @@ const Template: Story<ButtonProps & { showIcon: boolean }> = ({
       <Button
         onClick={handleClick}
         loading={isLoading}
-        icon={showIcon ? IconsEnum.search : undefined}
+        icon={showIcon ? IconsEnum.eye : undefined}
         {...args}
       />
     </>

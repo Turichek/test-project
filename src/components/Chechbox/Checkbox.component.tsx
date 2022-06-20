@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import { CheckboxProps } from './Checkbox.types';
 import styles from './Checkbox.module.scss';
@@ -7,6 +7,7 @@ import { TextVariantEnum } from 'components/Text';
 
 export const CheckboxComponent: React.FC<CheckboxProps> = ({
   checked = false,
+  onClick,
   text,
   className,
 }) => {
@@ -14,16 +15,11 @@ export const CheckboxComponent: React.FC<CheckboxProps> = ({
     styles.checkbox,
     className
   );
-  const [check, setCheck] = useState(checked)
-
-  const handleClick = () => {
-    setCheck(!check);
-  }
 
   return (
     <div className={CheckboxClass}>
-      <input onChange={() => {}} type='checkbox' checked={check} />
-      <label onClick={() => handleClick()}><span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
+      <input type='checkbox' onChange={()=>{}} checked={checked} />
+      <label onClick={onClick}><span></span>{text && <Text variant={TextVariantEnum.body_md}>{text}</Text>}</label>
     </div>
   );
 };

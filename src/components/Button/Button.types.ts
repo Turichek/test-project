@@ -16,7 +16,7 @@ export type ButtonProps = {
   icon?: IconsEnum;
   iconPosition?: 'left' | 'right';
   onClick?: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void | undefined;
   type?: 'button' | 'submit';
   disabled?: boolean;

@@ -5,7 +5,7 @@ import styles from './Datepicker.module.scss';
 import { Input } from 'components/Input';
 import "react-datepicker/dist/react-datepicker.css";
 import { IconsEnum, SvgIcon } from 'components/SvgIcon';
-import DatePicker, { CalendarContainer } from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import { Text, TextVariantEnum } from 'components/Text';
 import enGB from "date-fns/locale/en-GB";
 
@@ -19,7 +19,7 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
     styles.datepicker,
     className
   );
-  const [isView, setIsView] = useState(false);
+  const [isShowDropdown, setIsShowDropdown] = useState(false);
   const datepicker = useRef<DatePicker>(null);
   const months = [
     "Январь",
@@ -46,7 +46,7 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
   ];
 
   const handleRightClick = () => {
-    setIsView(!isView);
+    setIsShowDropdown(!isShowDropdown);
     datepicker.current?.setOpen(true);
   }
   
@@ -58,8 +58,8 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
         dateFormat='dd/MM/yyyy'
         locale={enGB}
         onChange={onChange}
-        onCalendarOpen={() => { setIsView(true); }}
-        onCalendarClose={() => { setIsView(false); }}
+        onCalendarOpen={() => { setIsShowDropdown(true); }}
+        onCalendarClose={() => { setIsShowDropdown(false); }}
         renderCustomHeader={({
           date,
           decreaseMonth,
@@ -87,7 +87,7 @@ export const DatepickerComponent: React.FC<DatepickerProps> = ({
             onClick={() => { }}
             type='text'
             variant={variant}
-            rightSide={<SvgIcon className={styles.svg} onClick={handleRightClick} src={IconsEnum.calendar} color={isView ? 'primary' : 'grey'} />}
+            rightSide={<SvgIcon className={styles.svg} onClick={handleRightClick} src={IconsEnum.calendar} color={isShowDropdown ? 'primary' : 'grey'} />}
           />
         }
       />

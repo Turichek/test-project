@@ -9,7 +9,7 @@ export const RadioComponent: React.FC<RadioProps> = ({
   text,
   name,
   toChecked,
-  handelChangeSelected: onClick,
+  onChange,
   value,
   className,
 }) => {
@@ -20,13 +20,13 @@ export const RadioComponent: React.FC<RadioProps> = ({
   const radio = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
-    onClick(radio.current?.value);
+    onChange(radio.current?.value);
   }
 
   return (
     <div className={RadioClass}>
-      <input ref={radio} type='radio' name={name} value={value} onChange={() => {}} checked={toChecked === value ? true : false} />
-      <label onClick={() => handleClick()}><span><span className={styles.dot}></span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
+      <input ref={radio} type='radio' onChange={()=>{}} name={name} value={value} checked={toChecked === value ? true : false} />
+      <label onClick={handleClick}><span><span className={styles.dot}></span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
     </div>
   );
 };

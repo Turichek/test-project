@@ -7,12 +7,25 @@ import { PasswordProps } from './Password.types';
 export default {
   title: 'Components/Password',
   component: Password,
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['large', 'medium'],
+    },
+  },
 };
 
-const Template: Story<PasswordProps> = (args) => {
+const Template: Story<PasswordProps> = ({variant}) => {
+  const [password,setPassword] = useState('');
   return (
     <>
-      <Password {...args} />
+      <Password 
+        value={password}
+        onChange={(e)=>{setPassword(e.target.value)}}
+        variant={variant}
+      />
     </>
   );
 };

@@ -7,12 +7,25 @@ import { DatepickerProps } from './Datepicker.types';
 export default {
   title: 'Components/Datepicker',
   component: Datepicker,
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['large', 'medium'],
+    },
+  },
 };
 
-const Template: Story<DatepickerProps> = (args) => {
+const Template: Story<DatepickerProps> = ({variant}) => {
+  const [date, setDate] = useState<Date | null>(new Date());
   return (
     <>
-      <Datepicker {...args} />
+      <Datepicker
+        value={date}
+        onChange={(date)=>{setDate(date)}}
+        variant={variant}
+        />
     </>
   );
 };

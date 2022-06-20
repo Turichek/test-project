@@ -6,6 +6,14 @@ import { ToggleProps } from './Toggle.types';
 export default {
   title: 'Components/Toggle',
   component: Toggle,
+  argTypes: {
+    checked: {
+      control: {
+        type: 'radio',
+      },
+      options: [false, true],
+    },
+  },
 };
 
 const Template: Story<ToggleProps> = (args) => {

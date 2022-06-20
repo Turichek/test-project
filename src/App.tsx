@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Avatar, AvatarVariantEnum } from 'components/Avatar';
 import { AvatarWithInfo } from 'components/AvatarWithInfo';
 import { Checkbox } from 'components/Chechbox';
@@ -10,11 +10,18 @@ import { Input, InputVariantEnum } from 'components/Input';
 import { IconsEnum, SvgIcon } from 'components/SvgIcon';
 import { Password } from 'components/Password';
 import { Datepicker } from 'components/Datepicker';
-import { Select, testOption } from 'components/Select';
-import { MultiValue, SingleValue } from 'react-select';
+import { Options, Select, SelectTypeEnum } from 'components/Select';
+import { SingleValue } from 'react-select';
 
 function App() {
-  const [selected, setSelected] = useState('');
+  const [checkbox1, setCheckbox1] = useState(false);
+  const [checkbox2, setCheckbox2] = useState(false);
+
+  const [toggle1, setToggle1] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
+
+  const [selected, setSelected] = useState<string | undefined>('');
+  
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
   const [text3, setText3] = useState('');
@@ -22,12 +29,16 @@ function App() {
   const [text5, setText5] = useState('');
   const [text6, setText6] = useState('');
   const [text7, setText7] = useState('');
-  const [select1, setSelect1] = useState<SingleValue<testOption>>({value: '', label: ''});
+  const [select1, setSelect1] = useState<SingleValue<Options>>({ value: '', label: '' });
   const [date1, setDate1] = useState<Date | null>(new Date());
+  const [rightSide] = useState(<SvgIcon className={styles.svg} onClick={() => { }} src={IconsEnum.eye} color={'grey'} />);
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
 
-  const [rightSide] = useState(<SvgIcon className={styles.svg} onClick={() => { }} src={IconsEnum.eye} color={'grey'} />)
-
-  const ChangeSelectedRadio = (value: string) => {
+  const ChangeSelectedRadio = (value: string | undefined) => {
     setSelected(value);
   }
 
@@ -45,19 +56,19 @@ function App() {
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Checkboxes</Text>
-        <Checkbox checked={false} text="Vadim Turichenko" />
-        <Checkbox checked={true} />
+        <Checkbox checked={checkbox1} onClick={()=>{setCheckbox1(!checkbox1)}} text="Vadim Turichenko" />
+        <Checkbox checked={checkbox2} onClick={()=>{setCheckbox2(!checkbox2)}} />
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Radios</Text>
-        <Radio value='123' name='123' handelChangeSelected={ChangeSelectedRadio} toChecked={selected} text='asdasf' />
-        <Radio value='345' name='123' handelChangeSelected={ChangeSelectedRadio} toChecked={selected} text='fassdv' />
-        <Radio value='567' name='123' handelChangeSelected={ChangeSelectedRadio} toChecked={selected} text='asdngvnfgasf' />
+        <Radio value='123' name='123' onChange={ChangeSelectedRadio} toChecked={selected} text='asdasf' />
+        <Radio value='345' name='123' onChange={ChangeSelectedRadio} toChecked={selected} text='fassdv' />
+        <Radio value='567' name='123' onChange={ChangeSelectedRadio} toChecked={selected} text='asdngvnfgasf' />
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Toggles</Text>
-        <Toggle checked={false} text="Vadim Turichenko" />
-        <Toggle checked={true} />
+        <Toggle checked={toggle1} onClick={()=>{setToggle1(!toggle1)}} text="Vadim Turichenko" />
+        <Toggle checked={toggle2} onClick={()=>{setToggle2(!toggle2)}} />
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Inputs</Text>
@@ -74,7 +85,7 @@ function App() {
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Select</Text>
-        <div className={styles.mb_5}><Select value={select1} onChange={(newValue) => { setSelect1(newValue) }} variant={InputVariantEnum.lg} /></div>
+        <div className={styles.mb_5}><Select type={SelectTypeEnum.default} options={options} value={select1} onChange={(newValue) => { setSelect1(newValue) }} variant={InputVariantEnum.lg} /></div>
       </div>
       <div className={styles.category}>
         <Text className={styles.mb_10} variant={TextVariantEnum.h3}>Password</Text>

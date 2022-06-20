@@ -19,7 +19,6 @@ export const AvatarWithInfoComponent: React.FC<AvatarWithInfoProps> = ({
     className
   );
 
-
   const FioVariantMap = {
     [AvatarVariantEnum.lg]: TextVariantEnum.h4,
     [AvatarVariantEnum.md]: TextVariantEnum.sub_md,

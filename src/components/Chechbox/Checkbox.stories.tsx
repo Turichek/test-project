@@ -6,9 +6,18 @@ import { CheckboxProps } from './Checkbox.types';
 export default {
   title: 'Components/Checkbox',
   component: Checkbox,
+  argTypes: {
+    checked: {
+      control: {
+        type: 'radio',
+      },
+      options: [false, true],
+    },
+  },
 };
 
 const Template: Story<CheckboxProps> = (args) => {
+  
   return (
     <>
       <Checkbox {...args} />

@@ -1,6 +1,7 @@
 
 export type ToggleProps = {
-  checked?: boolean;
+  onClick: () => void;
+  checked: boolean;
   text?: string;
   className?: string;
 };
