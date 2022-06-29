@@ -7,6 +7,14 @@ import { BadgeColorEnum } from 'components/Badge';
 export default {
   title: 'Components/ProductCard',
   component: ProductCard,
+  argTypes: {
+    rating: {
+      control: {
+        type: 'select',
+      },
+      options: [1, 2, 3, 4, 5],
+    },
+  },
 };
 
 const Template: Story<ProductCardProps> = (args) => {
@@ -21,7 +29,7 @@ export const productCard = Template.bind({});
 productCard.args = {
   title: 'DS-2CD2821G0 (AC24V/DC12V)',
   subtitle: 'SAP123877',
-  rating: 4,
+  rating: 5,
   description: '2Мп IP-камера в стандартном корпусе',
   badges: [{ text: 'Новый', color: BadgeColorEnum.light_green }],
   price: 20000,
