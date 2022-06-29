@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import { Options, SelectProps } from './Select.types';
-import styles from './Select.module.scss';
+import { OptionsProps, SelectProps, SelectTypeEnum } from './Select.types';
 import "react-datepicker/dist/react-datepicker.css";
-import Select, { components, OptionProps, StylesConfig } from 'react-select';
-import { Input } from 'components/Input';
+import Select, { components, ControlProps, DropdownIndicatorProps, InputProps, OptionProps } from 'react-select';
+import { Input} from 'components/Input';
 import { IconsEnum, SvgIcon } from 'components/SvgIcon';
 import { Text, TextVariantEnum } from 'components/Text';
+import { customDefaultStyle, SelectStyle } from './Select.styles';
 
 export const SelectComponent: React.FC<SelectProps> = ({
   value,
@@ -16,56 +15,83 @@ export const SelectComponent: React.FC<SelectProps> = ({
   type,
   className,
 }) => {
-  const SelectClass = classNames(
-    styles.select,
-    className
-  );
-  const customDefaultStyle: StylesConfig<Options> = {
-    option: (styles, { isFocused, isSelected }) => ({
-      ...styles,
-      backgroundColor: isSelected ? 'var(--primary)' : isFocused ? '#f5f6f7' : undefined,
-      color: isSelected ? 'var(--white)' : 'var(--dark-grey)',
-      ':active': {
-        backgroundColor: 'var(--light-grey)',
-      }
-    })
-  }
   const [isShowDropdown, setIsShowDropdown] = useState(false);
-
   const handleRightClick = () => {
     setIsShowDropdown(!isShowDropdown);
   }
-  const handleOnBlurInput = () => {
-    setIsShowDropdown(false);
+
+  const onClickSelect = () => {
+    setIsShowDropdown(!isShowDropdown);
   }
 
-  const Option = (props: OptionProps<Options, false>) => {
+  const SelectOptionsStyleMap = {
+    [SelectTypeEnum.default]: customDefaultStyle,
+  }
+
+  const OptionTypes = (props: OptionProps<OptionsProps, false>, type: SelectTypeEnum) => {
+    switch (type) {
+      case SelectTypeEnum.default:
+        return (
+          <>
+            <Text variant={TextVariantEnum.body_lg}>{props.data.label}</Text>
+          </>
+        )
+    }
+  }
+
+  const CustomOption = (props: OptionProps<OptionsProps, false>) => {
     return (
       <components.Option {...props} >
-        <Text className={styles.text} variant={TextVariantEnum.body_lg}>{props.children}</Text>
+        {OptionTypes(props, type)}
       </components.Option>
     );
   };
 
-  return (
-    <div className={SelectClass}>
+  const CustomControl = (props: ControlProps<OptionsProps, false>) => {
+    return (
       <Input
-        readonly={true}
-        value={value?.label}
+        value=''
+        hidden={true}
         variant={variant}
         onChange={() => { }}
-        onClick={handleRightClick}
-        onBlur={handleOnBlurInput}
-        rightSide={<SvgIcon onClick={handleRightClick} src={IconsEnum.arrowB} color={isShowDropdown ? 'primary' : 'grey'} rotate={isShowDropdown ? '180' : '0'} />}
-      />
+        {...props} ></Input>
+    )
+  }
+
+  const CustomDropdownIndicator = (props: DropdownIndicatorProps<OptionsProps, false>) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <SvgIcon src={IconsEnum.arrowB} color={isShowDropdown ? 'primary' : 'grey'} rotate={isShowDropdown ? '180' : '0'} />
+      </components.DropdownIndicator>
+    )
+  }
+
+  const CustomInput = (props: InputProps<OptionsProps, false>) => {
+    return (
+      <components.Input innerRef={props.innerRef} {...props} />
+    )
+  }
+
+  return (
+    <div style={{width: 'fit-content'}} className={className} onBlur={handleRightClick} onClick={onClickSelect}>
       <Select
-        value={value}
+        defaultValue={value}
         menuIsOpen={isShowDropdown}
-        onInputChange={handleRightClick}
+        placeholder='Выберите...'
+        isSearchable={true}
         onChange={onChange}
         options={options}
-        styles={customDefaultStyle}
-        components={{ Option }}
+        styles={{ ...SelectStyle, ...SelectOptionsStyleMap[type] }}
+        onMenuOpen={handleRightClick}
+        onMenuClose={handleRightClick}
+
+        components={{
+          Option: CustomOption,
+          Control: CustomControl,
+          DropdownIndicator: CustomDropdownIndicator,
+          Input: CustomInput,
+          IndicatorSeparator: undefined,
+        }}
       />
     </div>
   );

@@ -58,6 +58,12 @@
     }
   }
 
+  &_hidden {
+    .text {
+      display: none;
+    }
+  }
+
   &_variant {
     &_large {
       .text {

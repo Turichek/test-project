@@ -49,6 +49,8 @@ const Template: Story<ButtonProps & { showIcon: boolean }> = ({
   return (
     <>
       <Text variant={TextVariantEnum.body_lg}>Counter: {counter}</Text>
+      <br/>
+      <br/>
       <Button
         onClick={handleClick}
         loading={isLoading}

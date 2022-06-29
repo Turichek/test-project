@@ -28,8 +28,8 @@ const Template: Story<AvatarWithInfoProps> = (args) => {
 export const avatarWithInfo = Template.bind({});
 avatarWithInfo.args = {
   variant: AvatarVariantEnum.lg,
-  name: 'Vadim',
-  surname: "Turichenko",
-  position: "123",
-  email: '123'
+  name: 'Name',
+  surname: "Surname",
+  position: "Sales",
+  email: 'example@gmail.com'
 };

@@ -26,6 +26,6 @@ const Template: Story<BadgeProps> = (args) => {
 
 export const badge = Template.bind({});
 badge.args = {
-  text: 'Vadim',
+  text: 'Something text',
   color: BadgeColorEnum.light_blue,
 };

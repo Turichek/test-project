@@ -1,0 +1,54 @@
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid var(--light-grey);
+  width: 230px;
+  height: 380px;
+  padding: 6px;
+
+  .imgWithBadgeContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--white);
+
+    img {
+      width: 218px;
+      height: 150px;
+    }
+
+    .badgeContainer {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .stars {
+        display: flex;
+        gap: 4px;
+      }
+    }
+
+    .price {
+      display: flex;
+    }
+  }
+}

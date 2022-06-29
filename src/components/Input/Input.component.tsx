@@ -10,12 +10,14 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
   disabled,
   label,
   type,
+  readonly,
+  rightSide,
+  children,
+  hidden,
   onChange,
   onClick,
   onBlur,
   onFocus,
-  readonly,
-  rightSide,
   className,
 },ref) => {
   const [id] = useState((Math.random()*100).toString())
@@ -25,6 +27,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
     styles.input,
     {
       [styles['input_focused']]: isFocused,
+      [styles['input_hidden']]: hidden,
       [styles[`input_variant_${variant}`]]: variant,
     },
     className
@@ -46,6 +49,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
   return (
     <div className={InputClass}>
       {label && <label htmlFor={id} className={styles.label}>{label}</label>}
+      {children}
       <input
         id={id}
         name={id}
@@ -55,7 +59,7 @@ export const InputComponent = forwardRef<HTMLInputElement,InputProps>(({
         placeholder={placeholder && placeholder}
         className={styles.text}
         readOnly={readonly}
-
+      
         onClick={onClick}
         onChange={onChange}
         onFocus={handleFocus}

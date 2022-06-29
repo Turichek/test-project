@@ -6,6 +6,8 @@ export enum IconsEnum {
   arrowR = '/icons/common/arrowRight.svg',
   arrowL = '/icons/common/arrowLeft.svg',
   arrowB = '/icons/common/arrowBottom.svg',
+  star = '/icons/common/star.svg',
+  currency = '/icons/common/currency.svg',
 }
 
 export type SvgIconProps = {
@@ -38,4 +40,5 @@ export type colorType =
   | 'orange'
   | 'green'
   | 'cyan'
-  | 'disabled';
+  | 'disabled'
+  | 'inherit';

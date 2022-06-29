@@ -26,5 +26,5 @@ const Template: Story<InputProps> = (args) => {
 
 export const input = Template.bind({});
 input.args = {
-  variant: InputVariantEnum.lg
+  variant: InputVariantEnum.lg,
 };

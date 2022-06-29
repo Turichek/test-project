@@ -27,5 +27,5 @@ const Template: Story<AvatarProps> = (args) => {
 export const avatar = Template.bind({});
 avatar.args = {
   variant: AvatarVariantEnum.lg,
-  creds: 'TV',
+  creds: 'NS',
 };

@@ -2,24 +2,20 @@ import { InputVariantEnum } from "components/Input";
 import { ActionMeta, SingleValue } from "react-select";
 
 export enum SelectTypeEnum {
-  withCheckbox = 'withCheckbox',
   default = 'default',
-  filter = 'filter',
 }
 
 export type SelectProps = {
   variant: InputVariantEnum;
-  onChange: (newValue: SingleValue<Options>, actionMeta: ActionMeta<Options>) => void;
-  value: SingleValue<Options>;
-  options: Options[],
+  value?: SingleValue<OptionsProps>;
+  options: OptionsProps[],
   type: SelectTypeEnum,
+  onChange: (newValue: SingleValue<OptionsProps>, actionMeta: ActionMeta<OptionsProps>) => void;
   className?: string;
 };
 
-type testOption = {
+export type OptionsProps = {
   value: string; 
   label: string; 
+  checked?: boolean;
 };
-
-export type Options = 
-  testOption;

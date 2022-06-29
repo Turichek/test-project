@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Checkbox } from '.';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -17,7 +17,6 @@ export default {
 };
 
 const Template: Story<CheckboxProps> = (args) => {
-  
   return (
     <>
       <Checkbox {...args} />

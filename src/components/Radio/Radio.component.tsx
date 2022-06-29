@@ -8,7 +8,7 @@ import { TextVariantEnum } from 'components/Text';
 export const RadioComponent: React.FC<RadioProps> = ({
   text,
   name,
-  toChecked,
+  checked,
   onChange,
   value,
   className,
@@ -25,7 +25,7 @@ export const RadioComponent: React.FC<RadioProps> = ({
 
   return (
     <div className={RadioClass}>
-      <input ref={radio} type='radio' onChange={()=>{}} name={name} value={value} checked={toChecked === value ? true : false} />
+      <input ref={radio} type='radio' onChange={()=>{}} name={name} value={value} checked={checked} />
       <label onClick={handleClick}><span><span className={styles.dot}></span></span>{text && <Text variant={TextVariantEnum.body_md} >{text}</Text>}</label>
     </div>
   );

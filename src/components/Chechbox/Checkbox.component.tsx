@@ -18,7 +18,7 @@ export const CheckboxComponent: React.FC<CheckboxProps> = ({
 
   return (
     <div className={CheckboxClass}>
-      <input type='checkbox' onChange={()=>{}} checked={checked} />
+      <input type='checkbox' onChange={() => { }} checked={checked} />
       <label onClick={onClick}><span></span>{text && <Text variant={TextVariantEnum.body_md}>{text}</Text>}</label>
     </div>
   );

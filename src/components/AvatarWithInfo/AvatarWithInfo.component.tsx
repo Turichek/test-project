@@ -31,7 +31,7 @@ export const AvatarWithInfoComponent: React.FC<AvatarWithInfoProps> = ({
       <div className={styles.info}>
         {position && <Text variant={TextVariantEnum.body_md}>{position}</Text>}
         <Text variant={FioVariantMap[variant]}>{name + ' ' + surname}</Text>
-        {email && <Text variant={TextVariantEnum.caption}>{email}</Text>}
+        {email && <Text className={styles.email} variant={TextVariantEnum.caption}>{email}</Text>}
       </div>
     </div>
   );
