@@ -1,11 +1,32 @@
-.category{
-    margin: 25px;
+.category {
+  margin: 25px;
 }
 
-.mb_10{
-    margin-bottom: 10px;
+.mb_10 {
+  margin-bottom: 10px;
 }
 
-.mb_5{
-    margin-bottom: 5px;
+.mb_5 {
+  margin-bottom: 5px;
+}
+
+.count_modal {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .info {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .buttons {
+    padding: 0px 34px 34px;
+    display: flex;
+    gap: 15px;
+  }
 }

@@ -1,8 +1,8 @@
 import React, { ChangeEvent, ReactNode, FocusEvent } from "react";
 
 export enum InputVariantEnum {
-  lg = 'large',
-  md = 'medium',
+  lg = "large",
+  md = "medium",
 }
 
 export type InputProps = {

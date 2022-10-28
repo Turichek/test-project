@@ -1,17 +1,29 @@
-import { Story } from '@storybook/react';
-import React, { useState } from 'react';
-import { Text } from '.';
-import { TextProps, TextVariantEnum } from './Text.types';
+import { Text } from ".";
+
+import { Story } from "@storybook/react";
+
+import { TextProps, TextVariantEnum } from "./Text.types";
 
 export default {
-  title: 'Components/Text',
+  title: "Components/Text",
   component: Text,
   argTypes: {
     variant: {
       control: {
-        type: 'select',
+        type: "select",
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'subtitle_medium', 'subtitle_small', 'body_large', 'body_medium', 'caption'],
+      options: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "subtitle_medium",
+        "subtitle_small",
+        "body_large",
+        "body_medium",
+        "caption",
+      ],
     },
   },
 };
@@ -19,12 +31,12 @@ export default {
 const Template: Story<TextProps> = (args) => {
   return (
     <>
-      <Text {...args} >Counter</Text>
+      <Text {...args}>Counter</Text>
     </>
   );
 };
 
 export const text = Template.bind({});
 text.args = {
-  variant: TextVariantEnum.body_lg
+  variant: TextVariantEnum.body_lg,
 };

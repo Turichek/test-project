@@ -16,7 +16,7 @@
       background: var(--primary);
       color: var(--white);
 
-      [class*='svgIcon'] {
+      [class*="svgIcon"] {
         stroke: var(--white) !important;
       }
 
@@ -43,7 +43,7 @@
       background: var(--ultra-light-primary);
       color: var(--primary);
 
-      [class*='svgIcon'] {
+      [class*="svgIcon"] {
         stroke: var(--primary) !important;
       }
 
@@ -51,7 +51,7 @@
         background: var(--primary);
         color: var(--white);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--white) !important;
         }
       }
@@ -60,7 +60,7 @@
         background: var(--alfa-primary);
         color: var(--primary);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--primary) !important;
         }
       }
@@ -68,7 +68,7 @@
       &.disabled {
         background: var(--ultra-light-primary);
 
-        &>* {
+        & > * {
           opacity: 0.4;
         }
         .loader {
@@ -88,7 +88,7 @@
       color: var(--primary);
       border: 1px solid var(--primary);
 
-      [class*='svgIcon'] {
+      [class*="svgIcon"] {
         stroke: var(--primary) !important;
       }
 
@@ -96,7 +96,7 @@
         background: var(--primary);
         color: var(--white);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--white) !important;
         }
       }
@@ -105,7 +105,7 @@
         background: var(--ultra-light-primary);
         color: var(--primary);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--primary) !important;
         }
       }
@@ -126,14 +126,14 @@
       color: var(--primary);
       border: none;
 
-      [class*='svgIcon'] {
+      [class*="svgIcon"] {
         stroke: var(--primary) !important;
       }
 
       &:hover {
         color: var(--dark-primary);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--dark-primary) !important;
         }
       }
@@ -141,7 +141,7 @@
       &:active {
         color: var(--primary);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--primary) !important;
         }
       }
@@ -149,7 +149,7 @@
       &.disabled {
         color: var(--grey);
 
-        [class*='svgIcon'] {
+        [class*="svgIcon"] {
           stroke: var(--grey) !important;
         }
       }
@@ -160,7 +160,7 @@
           opacity: 1;
         }
 
-        &>* {
+        & > * {
           opacity: 0.4;
         }
       }
@@ -176,21 +176,18 @@
   &_size {
     &_sm {
       height: 36px;
-      padding: 0 24px;
       font-size: 14px;
       line-height: 16px;
     }
 
     &_md {
       height: 40px;
-      padding: 0 32px;
       font-size: 14px;
       line-height: 16px;
     }
 
     &_lg {
       height: 56px;
-      padding: 0 60px;
       font-size: 18px;
       line-height: 20px;
     }

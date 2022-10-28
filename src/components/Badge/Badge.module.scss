@@ -5,44 +5,41 @@
   border-radius: 4px;
   width: fit-content;
   padding: 4px 8px;
-  
-  &_light_orange{
+  color: #fff;
+
+  &_light_orange {
     background-color: var(--light_orange);
   }
 
-  &_light_green{
+  &_light_green {
     background-color: var(--light_green);
   }
 
-  &_light_blue{
+  &_light_blue {
     background-color: var(--light_blue);
   }
 
-  &_red{
+  &_red {
     background-color: var(--red);
   }
 
-  &_blue{
+  &_blue {
     background-color: var(--lblue);
   }
 
-  &_orange{
+  &_orange {
     background-color: var(--orange);
   }
 
-  &_green{
+  &_green {
     background-color: var(--green);
   }
 
-  &_cyan{
+  &_cyan {
     background-color: var(--cyan);
   }
 
-  &_disabled{
+  &_disabled {
     background-color: var(--disabled);
-  }
-
-  span{
-    color: var(--white);
   }
 }

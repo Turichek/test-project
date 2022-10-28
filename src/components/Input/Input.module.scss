@@ -13,7 +13,7 @@
     }
   }
 
-  [class*='svgIcon'] {
+  [class*="svgIcon"] {
     cursor: pointer;
   }
 
@@ -23,7 +23,8 @@
     display: inline-block;
     font-size: 16px;
     line-height: 24px;
-    width: 100%;
+    flex-grow: 1;
+    min-width: 100px;
 
     &:focus {
       outline: none;
@@ -31,6 +32,7 @@
   }
 
   .label {
+    font-family: "T-Star Pro";
     font-size: 16px;
     line-height: 24px;
     color: var(--grey);
@@ -39,13 +41,9 @@
     position: absolute;
     cursor: text;
 
-    transition:
-      background .2s ease-in-out,
-      font-size .2s ease-in-out,
-      line-height .2s ease-in-out,
-      padding .2s ease-in-out,
-      color .2s ease-in-out,
-      top .2s ease-in-out;
+    transition: background 0.2s ease-in-out, font-size 0.2s ease-in-out,
+      line-height 0.2s ease-in-out, padding 0.2s ease-in-out,
+      color 0.2s ease-in-out, top 0.2s ease-in-out;
   }
 
   &_focused {
@@ -67,15 +65,14 @@
   &_variant {
     &_large {
       .text {
-        max-height: 24px;
         padding: 16px;
       }
 
-      [class*='svgIcon'] {
-        padding: 16px 16px 16px 0px;
+      [class*="svgIcon"] {
+        margin: 16px 16px 16px 0px;
 
-        &[class*='_rotate_180'] {
-          padding: 16px 0px 16px 16px;
+        &[class*="_rotate_180"] {
+          margin: 16px 0px 16px 16px;
         }
       }
 
@@ -87,15 +84,14 @@
 
     &_medium {
       .text {
-        max-height: 40px;
         padding: 8px 16px;
       }
 
-      [class*='svgIcon'] {
-        padding: 8px 16px 8px 0px;
+      [class*="svgIcon"] {
+        margin: 8px 16px 8px 0px;
 
-        &[class*='_rotate_180'] {
-          padding: 8px 0px 8px 16px;
+        &[class*="_rotate_180"] {
+          margin: 8px 0px 8px 16px;
         }
       }
 

@@ -1,9 +1,12 @@
 .radio {
-  input { display:none; }
+  input {
+    display: none;
+  }
 
   input + label {
     display: flex;
     align-items: center;
+    gap: 15px;
     width: fit-content;
 
     &:hover span:first-child {
@@ -11,15 +14,17 @@
     }
 
     span:first-child {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: white;
       border-radius: 50%;
       border: 1px solid var(--grey);
-      margin: 2px 13px 2px 2px;
 
       .dot {
+        border-radius: 50%;
         display: none;
         width: 10px;
         height: 10px;
@@ -31,7 +36,7 @@
   input:checked + label {
     span:first-child {
       border: 1px solid var(--primary);
-      
+
       .dot {
         display: inline-block;
       }
